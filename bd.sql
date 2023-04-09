@@ -12,8 +12,6 @@ create table user (
     n_locations_visited
 );
 
---dif recomendada
-
 create table workout_spot (
     location_id SERIAL NOT NULL CONSTRAINT workout_spot_pkey PRIMARY KEY,
     location_name VARCHAR NOT NULL,
@@ -43,6 +41,3 @@ create table medals (
     points_required DECIMAL NOT NULL,
     captured BOOLEAN NOT NULL
 );
-
--- melhorar ligação de tabelas
--- medalhas na sua propria tabela (?) booleans (?)
