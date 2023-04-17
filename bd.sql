@@ -1,4 +1,4 @@
-create table user (
+CREATE TABLE users (
     user_id SERIAL NOT NULL CONSTRAINT user_pkey PRIMARY KEY,
     username VARCHAR NOT NULL,
     password VARCHAR NOT NULL,
@@ -9,12 +9,12 @@ create table user (
     bmi DECIMAL NOT NULL,
     points DECIMAL NOT NULL,
     difficulty_selected DECIMAL NOT NULL,
-    n_locations_visited
+    n_locations_visited DECIMAL
 );
 
 --dif recomendada
 
-create table workout_spot (
+CREATE TABLE workout_spot (
     location_id SERIAL NOT NULL CONSTRAINT workout_spot_pkey PRIMARY KEY,
     location_name VARCHAR NOT NULL,
     longitude DECIMAL NOT NULL,
@@ -24,21 +24,21 @@ create table workout_spot (
     rating DECIMAL NOT NULL
 );
 
-create table powerstation (
+CREATE TABLE powerstation (
     powerstation_id SERIAL NOT NULL CONSTRAINT powerstation_pkey PRIMARY KEY,
     powerstation_type DECIMAL NOT NULL,
-    exercises VARCHAR NOT NULL,
+    exercises VARCHAR NOT NULL
 );
 
-create table exercise (
+CREATE TABLE exercise (
     exercise_id SERIAL NOT NULL CONSTRAINT exercise_pkey PRIMARY KEY,
     exercise_powerstation_name VARCHAR NOT NULL,
     dificulty DECIMAL NOT NULL,
     muscle_groups_targeted VARCHAR NOT NULL,
-    reward DECIMAL NOT NULL,
+    reward DECIMAL NOT NULL
 );
 
-create table medals (
+CREATE TABLE medals (
     medal_id SERIAL NOT NULL CONSTRAINT medal_pkey PRIMARY KEY,
     points_required DECIMAL NOT NULL,
     captured BOOLEAN NOT NULL
