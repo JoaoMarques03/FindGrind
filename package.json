@@ -1,5 +1,15 @@
 {
   "dependencies": {
     "pg": "^8.10.0"
-  }
+  },
+  "name": "findgrind",
+  "description": "Repositorio do projeto de desenvolvimento web Find &amp; Grind\r edit",
+  "version": "1.0.0",
+  "main": "database.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
