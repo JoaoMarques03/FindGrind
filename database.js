@@ -24,4 +24,14 @@ client.query('Select * from users', (err, res)=>{
 app.listen(8080, () => {
     console.log('Server listening on port 8080');
   });
-  
+
+  app.get('/users', (req, res) => {
+    client.query('SELECT * FROM users', (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error fetching users');
+      } else {
+        res.send(result.rows);
+      }
+    });
+  });
