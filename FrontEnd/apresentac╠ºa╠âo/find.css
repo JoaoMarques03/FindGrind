@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  max-width: 100%;
+}
+
+
+.center {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2%;
+  display: flex;
+  flex-wrap: nowrap;
+  
+}
+
+header {
+  background-color: #FF751A;
+  padding: 10px 0;
+
+
+}
+
+.logotipo {
+  color: black;
+
+}
+
+.logotipo h1{
+  height: 30px;
+  width: 300px;
+color: white;
+text-shadow: 0.1em 0.1em 0.05em #333;
+}
+
+.menu a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 20px;
+
+  transition: 0.4s;
+}
+
+
+.menu {
+  width: 80%;
+  text-align: right;
+}
+
+
+
+.menu a:hover {
+  color: black;;
+}
+
+.menu .btn-menu {
+  background-color: #BABABA;
+  display: inline-block;
+  padding: 7px 14px;
+  color: black;
+  border-radius: 6px;
+
+}
+
+.menu .btn-menu:hover {
+  background-color: #74340a;
+  color: white;
+}
+
+
+
+/*------------------find------------------*/
+
+
+
+section.mainfind {
+    background-image: url('img/imagemfundogrind.jpg');
+    padding-bottom: 150px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 900px;
+  }
+
+
+
+
+
+  .titulofind h1{
+    font-size: 65px;
+    color: white;
+
+    position: absolute;
+    padding-top: 3%;
+    margin-left: 18%;
+    font-weight: 800;
+    text-shadow: 0.1em 0.1em 0.05em #333
+  }
+
+
+
+
+
+  section .fundoroll button{ 
+    background-color: #FF751A;
+    padding: 2%;
+    border: 2px solid white;
+    font-weight: 550;
+    color: white;
+    font-size: 18px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    margin: 3% 0;
+    margin-left: 8%;
+  }
+  
+
+  .fundoroll button:hover {
+    background-color: #74340a;
+    color: white;
+  }
+
+  
+  
+.wrapper h2{
+    position: relative;
+    width: 100%;    
+    margin-left: 20%;
+
+
+  }
+
+  .wrapper iframe{
+    position: relative;
+    width: 90%;
+    margin-left: 10%;
+    margin: auto;
+
+  }
+  
+  
+  .fundoroll {
+    height: 545px;
+    width: 25%;
+    float: left;
+    margin-left: 20%;
+    margin: 130px;   
+  }
+
+
+
+  .fundoroll1 {
+    height: 820px;
+    width: 750px;
+    float: right;
+    margin-top: 20px;
+    padding-right:20px ;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  
