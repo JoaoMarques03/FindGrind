@@ -1,4 +1,6 @@
 const {Client} = require('pg')
+const app = require('express')();
+const PORT = 8080;
 
 const client = new Client({
     host: "kandula.db.elephantsql.com",
@@ -18,3 +20,8 @@ client.query('Select * from users', (err, res)=>{
     }
     client.end;
 })
+
+app.listen(8080, () => {
+    console.log('Server listening on port 8080');
+  });
+  
