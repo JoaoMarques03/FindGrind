@@ -1,11 +1,11 @@
 const {Client} = require('pg')
 
 const client = new Client({
-    host: "postgres://hwvtdpzt:0LSA9Y98xJSf282WKKAjqglmLLQABFjw@kandula.db.elephantsql.com/hwvtdpzt",
+    host: "kandula.db.elephantsql.com",
     user: "hwvtdpzt",
     port: 5432,
     password: "0LSA9Y98xJSf282WKKAjqglmLLQABFjw",
-    database: "FindGrind"
+    database: "hwvtdpzt"
 })
 
 client.connect();
