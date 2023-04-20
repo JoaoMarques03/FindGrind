@@ -1,7 +1,7 @@
 require('dotenv').config();
 const {Client} = require('pg')
 const app = require('express')();
-const PORT = 3001;
+const PORT = 3003;
 
 const client = new Client({
   host: process.env.DB_HOST,
@@ -19,11 +19,10 @@ client.query('SELECT * FROM users', (err, res)=>{
     } else {
         console.log(err.message);
     }
-    client.end();
 })
 
-app.listen(3001, () => {
-    console.log('Server listening on port 3001');
+app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
   });
 
   app.get('/users', (req, res) => {
