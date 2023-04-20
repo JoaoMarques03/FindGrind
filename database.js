@@ -1,14 +1,15 @@
+require('dotenv').config();
 const {Client} = require('pg')
 const app = require('express')();
 const PORT = 3000;
 
 const client = new Client({
-    host: "kandula.db.elephantsql.com",
-    user: "hwvtdpzt",
-    port: 5432,
-    password: "0LSA9Y98xJSf282WKKAjqglmLLQABFjw",
-    database: "hwvtdpzt"
-})
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  port: process.env.DB_PORT,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+});
 
 client.connect();
 
