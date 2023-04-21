@@ -35,3 +35,14 @@ app.listen(PORT, () => {
       }
     });
   });
+
+  app.get('/workout_spot', (req, res) => {
+    client.query('SELECT * FROM workout_spot', (err, result) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error fetching workout spots');
+      } else {
+        res.send(result.rows);
+      }
+    });
+  });
