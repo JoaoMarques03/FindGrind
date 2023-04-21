@@ -1,7 +1,8 @@
 require('dotenv').config();
-const {Client} = require('pg')
-const app = require('express')();
-const PORT = 3003;
+const { Client } = require('pg');
+const express = require('express');
+const app = express();
+const PORT = 3000;
 
 const client = new Client({
   host: process.env.DB_HOST,
@@ -11,19 +12,13 @@ const client = new Client({
   database: process.env.DB_NAME,
 });
 
-client.connect();
-
-client.query('SELECT * FROM users', (err, res)=>{
-    if(!err){
-        console.log(res.rows);
-    } else {
-        console.log(err.message);
-    }
-})
-
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
-  });
+client.connect((err) => {
+  if (err) {
+    console.error('Error connecting to database:', err.message);
+  } else {
+    console.log('Connected to database');
+  }
+});
 
   app.get('/users', (req, res) => {
     client.query('SELECT * FROM users', (err, result) => {
@@ -45,4 +40,8 @@ app.listen(PORT, () => {
         res.send(result.rows);
       }
     });
+  });
+  
+  app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
   });
