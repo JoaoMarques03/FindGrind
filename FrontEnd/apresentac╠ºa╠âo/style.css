@@ -54,7 +54,7 @@ header {
 }
 
 .menu .btn-menu {
-  background-color: #BABABA;
+  background-color: white;
   display: inline-block;
   padding: 7px 14px;
   color: black;
@@ -80,6 +80,7 @@ section.main {
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 1000px;
+  
   
 }
 
@@ -132,10 +133,10 @@ section.main {
 }
 
 .animacao .dynamic-txts {
-  margin-left: 15px;
+  justify-content: center;
   height: 90px;
   line-height: 90px;
-  overflow: hidden;
+
 }
 
 .dynamic-txts li {

@@ -7,9 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="./Font-Awesome/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrT76RdNr5WWbquJS2Y_GUDeNxtH5bkPQ"></script>
+  <script src="find.js"></script>
     <title>Find</title>
     <link href="find.css" rel="stylesheet">
+    <style>
+        #map {
+          height: 600px;
+          width: 100%;
+        }
+      </style>
+    
 </head>
 <header>
     <div class="center">
@@ -52,13 +60,12 @@
         </div>
         <section class="fundoroll">
             <div class="wrapper">
-
-                <button>Alcantara</button>
-                <button>Rato</button>
-                <button>Algés</button>
-                <button>Estrela</button>
-                <button>Madre Deus</button>
-                <button>Parque das Nações</button>
+                <button id="zoom1">Parque da Bela Vista</button>
+                <button id="zoom2">Marvila</button>
+                <button id="zoom3">Graça</button>
+                <button id="zoom4">Parque Eduardo VII</button>
+                <button id="zoom5">Parque do Corredor Verde</button>
+                <button id="zoom6">Parque do Largo da Luz</button>
                 <button>São Sebastião</button>
                 <button>Areeiro</button>
 
@@ -71,16 +78,12 @@
 
         <section class="fundoroll1">
             <div class="wrapper">
-                <p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d49789.971392789
-                        93!2d-9.2319615!3d38.7436716!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ecb42c3c29c
-                        4b%3A0x3002dcadcf52513f!2sBel%C3%A9m%20Tower!5e0!3m2!1sen!2spt!4v1681313851792
-                        !5m2!1sen!2spt" width="1240" height="700" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </p>
+               <body onload="initMap()">
+                <div id="map"></div>
         </section>
         </div>
 
-
+    
 
 
 
