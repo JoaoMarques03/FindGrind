@@ -41,30 +41,15 @@ app.post('/login', (req, res) => {
       console.error(err);
       res.status(500).send('Error fetching user');
     } else {
-      const user = result.rows[0];
-      if (user) {
-        // User found, create session
-        const sessionObj = { username: user.username };
-        req.session.user = sessionObj;
-        res.redirect('/index.html'); // redirect to the dashboard page
+      if (result.rows.length > 0) {
+        res.status(200).send('ok');
       } else {
-        // User not found or password incorrect
-        res.status(401).send('Login failed. Invalid username or password');
+        res.status(401).send('Invalid username or password');
       }
     }
   });
 });
 
-// Serve the dashboard page
-app.get('/index.html', (req, res) => {
-  // Check if user is logged in
-  if (req.session && req.session.user && req.session.user.username) {
-    res.send('Welcome to the dashboard!'); // send the dashboard HTML
-  } else {
-    // User is not logged in, redirect to login page
-    res.redirect('/login');
-  }
-});
 
 app.get('/users', (req, res) => {
   client.query('SELECT * FROM users', (err, result) => {
