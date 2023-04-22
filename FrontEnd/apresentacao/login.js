@@ -4,7 +4,7 @@ loginButton.addEventListener('click', () => {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
 
-  fetch('/login', {
+  fetch('../../database.js/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -23,3 +23,7 @@ loginButton.addEventListener('click', () => {
     alert('An error occurred while logging in');
   });
 });
+
+console.log('Request sent successfully');
+console.log('Response status:', response.status);
+console.log('Response body:', response.body);
