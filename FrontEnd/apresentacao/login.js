@@ -1,33 +1,37 @@
-const loginButton = document.querySelector('#login-button');
+window.onload = function onLoad() {
 
-loginButton.addEventListener('click', () => {
-  const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;
+  var form = document.getElementById("form-login");
+  console.log(form);
 
-  console.log('Username:', username);
-  console.log('Password:', password);
+  form.onsubmit = function(event) {
 
-  fetch('http://localhost:3000/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ username, password })
-  })
-  .then((response) => {
-    console.log('Response status:', response.status);
-    console.log('Response body:', response.body);
-    if (response.ok) {
-      console.log('Login successful');
-      window.location.href = "/index.html"; // redirect user to dashboard
-    } else {
-      alert('Invalid username or password');
-    }
-  })
-  .catch((error) => {
-    console.error(error);
-    alert('An error occurred while logging in');
-  });
+      event.preventDefault();
 
-  console.log('Request sent successfully');
-});
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, password })
+    })
+    .then((response) => {
+      console.log('Response status:', response.status);
+      console.log('Response body:', response.body);
+      if (response.ok) {
+        console.log('Login successful');
+        window.location.href = "/apresentacao/index.html"; // redirect user to dashboard
+      } else {
+        alert('Invalid username or password');
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('An error occurred while logging in');
+    });
+
+    console.log('Request sent successfully');
+  }
+}

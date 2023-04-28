@@ -41,6 +41,7 @@ app.post('/login', (req, res) => {
       console.error(err);
       res.status(500).send('Error fetching user');
     } else {
+      console.log('teste')
       if (result.rows.length > 0) {
         res.status(200).send('ok');
       } else {
