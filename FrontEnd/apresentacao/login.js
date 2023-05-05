@@ -22,7 +22,7 @@ window.onload = function onLoad() {
       console.log('Response body:', response.body);
       if (response.ok) {
         console.log('Login successful');
-        window.location.href = "/apresentacao/index.html"; // redirect user to dashboard
+        window.location.href = "index.html"; // redirect user to dashboard
       } else {
         alert('Invalid username or password');
       }

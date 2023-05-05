@@ -7,13 +7,37 @@ function initMap() {
     center: mapCenter,
   });
 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        console.log(userLocation);
+        console.log(GeolocationCoordinates.coords)
+        map.setCenter(userLocation);
+        const userMarker = new google.maps.Marker({
+          position: userLocation,
+          map: map,
+          title: "Your location",
+        });
+      },
+      () => {
+        console.log("Error: The Geolocation service failed.");
+      }
+    );
+  } else {
+    console.log("Error: Your browser doesn't support geolocation.");
+  }
+
   const locations = [
-    { lat: 38.744401169766995, lng: -9.12210042750371, title: "Parque da Bela Vista", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas magni quis labore fuga a voluptatesdistinctio earum aperiam dolor quia animi, ipsum eum. Modi minus ad obcaecati nostrum atemporibus!" },
-    { lat: 38.746791163972496, lng: -9.112037594600956, title: "Marvila", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas magni quis labore fuga a voluptatesdistinctio earum aperiam dolor quia animi, ipsum eum. Modi minus ad obcaecati nostrum atemporibus!" },
-    { lat: 38.72120570174017, lng: -9.139257400380155, title: "Graça Calisthenics Park", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas magni quis labore fuga a voluptatesdistinctio earum aperiam dolor quia animi, ipsum eum. Modi minus ad obcaecati nostrum atemporibus!" },
-    { lat: 38.73012518221117, lng: -9.158396082622005, title: "Parque Eduardo VII", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas magni quis labore fuga a voluptatesdistinctio earum aperiam dolor quia animi, ipsum eum. Modi minus ad obcaecati nostrum atemporibus!" },
-    { lat: 38.73558194107584, lng: -9.160733114780443, title: "Parque do Corredor Verde", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas magni quis labore fuga a voluptatesdistinctio earum aperiam dolor quia animi, ipsum eum. Modi minus ad obcaecati nostrum atemporibus!" },
-    { lat: 38.762767458976384, lng: -9.183379415464149, title: "Parque do Largo da Luz", info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas magni quis labore fuga a voluptatesdistinctio earum aperiam dolor quia animi, ipsum eum. Modi minus ad obcaecati nostrum atemporibus!" },
+    { lat: 38.744401169766995, lng: -9.12210042750371, title: "Parque da Bela Vista", info: "teste" },
+    { lat: 38.746791163972496, lng: -9.112037594600956, title: "Marvila", info: "teste" },
+    { lat: 38.72120570174017, lng: -9.139257400380155, title: "Graça Calisthenics Park", info: "teste" },
+    { lat: 38.73012518221117, lng: -9.158396082622005, title: "Parque Eduardo VII", info: "teste" },
+    { lat: 38.73558194107584, lng: -9.160733114780443, title: "Parque do Corredor Verde", info: "teste" },
+    { lat: 38.762767458976384, lng: -9.183379415464149, title: "Parque do Largo da Luz", info: "teste" },
   ];
 
   locations.forEach((location) => {
