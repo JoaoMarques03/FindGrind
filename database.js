@@ -9,6 +9,11 @@ const PORT = 3000;
 // Use body-parser middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+const cors = require('cors');
+app.use(cors({
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
+  origin: '*'
+}));
 
 // Use express-session middleware to create sessions
 app.use(session({
