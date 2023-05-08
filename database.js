@@ -38,45 +38,40 @@ client.connect((err) => {
   }
 });
 
-// Handle POST request for user login
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  client.query('SELECT * FROM users WHERE username=$1 AND password=$2', [username, password], (err, result) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error fetching user');
+  try {
+    const result = await client.query('SELECT * FROM users WHERE username=$1 AND password=$2', [username, password]);
+    if (result.rows.length > 0) {
+      res.status(200).send('ok');
     } else {
-      console.log('teste')
-      if (result.rows.length > 0) {
-        res.status(200).send('ok');
-      } else {
-        res.status(401).send('Invalid username or password');
-      }
+      res.status(401).send('Invalid username or password');
     }
-  });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching user');
+  }
 });
 
 
-app.get('/users', (req, res) => {
-  client.query('SELECT * FROM users', (err, result) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error fetching users');
-    } else {
-      res.send(result.rows);
-    }
-  });
+app.get('/users', async (req, res) => {
+  try {
+    const result = await client.query('SELECT * FROM users');
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching users');
+  }
 });
 
-app.get('/workout_spot', (req, res) => {
-  client.query('SELECT * FROM workout_spot', (err, result) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Error fetching workout spots');
-    } else {
-      res.send(result.rows);
-    }
-  });
+app.get('/workout_spot', async (req, res) => {
+  try {
+    const result = await client.query('SELECT * FROM workout_spot');
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error fetching workout spots');
+  }
 });
 
 app.listen(PORT, () => {
