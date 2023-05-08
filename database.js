@@ -3,19 +3,18 @@ const { Client } = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
-// Use body-parser middleware to parse request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const cors = require('cors');
+
 app.use(cors({
   methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
   origin: '*'
 }));
 
-// Use express-session middleware to create sessions
 app.use(session({
   secret: 'mysecret',
   resave: false,
