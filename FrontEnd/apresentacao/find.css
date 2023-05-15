@@ -119,10 +119,6 @@ section.mainfind {
     text-shadow: 0.1em 0.1em 0.05em #333
   }
 
-
-
-
-
   section .fundoroll button{ 
     background-color: #FF751A;
     padding: 2%;
@@ -138,31 +134,6 @@ section.mainfind {
     margin-left: 8%;
   }
   
-
-  .fundoroll button:hover {
-    background-color: #74340a;
-    color: white;
-  }
-
-  
-  
-.wrapper h2{
-    position: relative;
-    width: 100%;    
-    margin-left: 20%;
-
-
-  }
-
-  .wrapper iframe{
-    position: relative;
-    width: 90%;
-    margin-left: 10%;
-    margin: auto;
-
-  }
-  
-  
   .fundoroll {
     height: 545px;
     width: 25%;
@@ -171,25 +142,10 @@ section.mainfind {
     margin: 130px;   
   }
 
-
-
   .fundoroll1 {
     height: 820px;
-    width: 750px;
+    width: 50%; 
     float: right;
-    margin-top: 20px;
-    padding-right:20px ;
+    margin-top: 50px;
+    padding-right: 60px;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-  
