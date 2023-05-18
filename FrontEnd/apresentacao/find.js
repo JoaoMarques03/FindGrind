@@ -21,6 +21,10 @@ function initMap() {
           position: userLocation,
           map: map,
           title: "Your location",
+          icon: {
+            url: "img/user.png",
+            scaledSize: new google.maps.Size(48, 48),
+        }
         });
       },
       (error) => {
@@ -45,6 +49,10 @@ function initMap() {
       position: location,
       map: map,
       title: location.title,
+      icon: {
+        url: "img/destination.png",
+        scaledSize: new google.maps.Size(48, 48),
+    }
     });
 
     const infowindow = new google.maps.InfoWindow({

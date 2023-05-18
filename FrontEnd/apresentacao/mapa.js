@@ -1,6 +1,6 @@
 function initMap() {
     var mapOptions = {
-        zoom: 12 // Specify the initial zoom level
+        zoom: 12
     };
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -22,6 +22,10 @@ function initMap() {
                     position: userLocation,
                     map: map,
                     title: "Your location",
+                    icon: {
+                        url: "img/user.png",
+                        scaledSize: new google.maps.Size(48, 48),
+                    }
                 });
 
                 const locations = [
@@ -38,6 +42,10 @@ function initMap() {
                         position: location,
                         map: map,
                         title: location.title,
+                        icon: {
+                            url: "img/destination.png",
+                            scaledSize: new google.maps.Size(48, 48),
+                        }
                     });
 
                     const infowindow = new google.maps.InfoWindow({
@@ -53,7 +61,6 @@ function initMap() {
                     });
                 });
 
-                // Define polygon coordinates
                 const polygonCoordinates = [
                     { lat: 38.744401169766995, lng: -9.12210042750371 },
                     { lat: 38.746791163972496, lng: -9.112037594600956 },
@@ -61,10 +68,9 @@ function initMap() {
                     { lat: 38.73012518221117, lng: -9.158396082622005 },
                     { lat: 38.73558194107584, lng: -9.160733114780443 },
                     { lat: 38.762767458976384, lng: -9.183379415464149 },
-                    { lat: 38.744401169766995, lng: -9.12210042750371 } // Repeat first coordinate to close the polygon
+                    { lat: 38.744401169766995, lng: -9.12210042750371 } 
                 ];
 
-                // Create a polygon and set its path
                 const polygon = new google.maps.Polygon({
                     paths: polygonCoordinates,
                     strokeColor: "#FF0000",
@@ -75,13 +81,12 @@ function initMap() {
                 });
                 polygon.setMap(map);
 
-                // Helper function to calculate and display the route
                 function calculateAndDisplayRoute(origin, destination) {
                     directionsService.route(
                         {
                             origin: origin,
                             destination: destination,
-                            travelMode: google.maps.TravelMode.DRIVING
+                            travelMode: google.maps.TravelMode.WALKING
                         },
                         (response, status) => {
                             if (status === "OK") {
