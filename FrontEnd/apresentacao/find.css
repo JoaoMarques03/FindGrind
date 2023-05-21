@@ -103,11 +103,7 @@ section.mainfind {
     background-attachment: fixed;
     height: 900px;
   }
-
-
-
-
-
+  
   .titulofind h1{
     font-size: 65px;
     color: white;
@@ -132,6 +128,12 @@ section.mainfind {
     cursor: pointer;
     margin: 3% 0;
     margin-left: 8%;
+  }
+  
+
+  .fundoroll button:hover {
+    background-color: #74340a;
+    color: white;
   }
   
   .fundoroll {
