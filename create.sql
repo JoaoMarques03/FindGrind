@@ -20,7 +20,8 @@ CREATE TABLE workout_spot (
     longitude DECIMAL NOT NULL,
     latitude DECIMAL NOT NULL,
     first_time BOOLEAN,
-    workout_spot_powerstation_id VARCHAR
+    workout_spot_powerstation_id VARCHAR,
+    info TEXT
 );
 
 CREATE TABLE powerstation (
