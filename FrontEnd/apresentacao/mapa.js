@@ -38,8 +38,6 @@ function initMap() {
                     .then(locations => {
                         locations.forEach((location) => {
                             const { latitude, longitude } = location;
-                            console.log('Latitude:', latitude);
-                            console.log('Longitude:', longitude);
 
                             if (isNaN(latitude) || isNaN(longitude)) {
                                 throw new Error('Latitude or longitude is not a valid number');

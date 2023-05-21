@@ -24,6 +24,13 @@ CREATE TABLE workout_spot (
     info TEXT
 );
 
+CREATE TABLE polygons (
+  id SERIAL PRIMARY KEY,
+  polygon_id INTEGER,
+  latitude DECIMAL,
+  longitude DECIMAL
+);
+
 CREATE TABLE powerstation (
     powerstation_id SERIAL NOT NULL CONSTRAINT powerstation_pkey PRIMARY KEY,
     powerstation_type DECIMAL NOT NULL,
