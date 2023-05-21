@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
-const client = require('./database'); 
+const client = require('./database');
 const app = express();
 const PORT = 3000;
 
@@ -56,14 +56,24 @@ app.get('/workout_spot', async (req, res) => {
 });
 
 app.get('/api/locations', async (req, res) => {
-    try {
-      const result = await client.query('SELECT latitude, longitude, location_name, info FROM workout_spot');
-      res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: err.message }); // Send the actual error message
-      }
-  }); 
+  try {
+    const result = await client.query('SELECT latitude, longitude, location_name, info FROM workout_spot');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message }); // Send the actual error message
+  }
+});
+
+app.get('/api/polygons', async (req, res) => {
+  try {
+    const result = await client.query('SELECT * FROM polygons');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message }); // Send the actual error message
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
