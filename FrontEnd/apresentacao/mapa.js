@@ -46,7 +46,7 @@ function initMap() {
                             }
 
                             const marker = new google.maps.Marker({
-                                position: { lat: parseFloat(longitude), lng: parseFloat(latitude) },
+                                position: { lat: parseFloat(latitude), lng: parseFloat(longitude) },
                                 map: map,
                                 title: location.location_name,
                                 icon: {
@@ -65,7 +65,7 @@ function initMap() {
                                 infowindow.open(map, marker);
 
                                 const origin = new google.maps.LatLng(userLocation.lat, userLocation.lng);
-                                const destination = new google.maps.LatLng(parseFloat(longitude), parseFloat(latitude));
+                                const destination = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
                                 calculateAndDisplayRoute(origin, destination);
                             });
                         });
