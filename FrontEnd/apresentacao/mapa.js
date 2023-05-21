@@ -28,38 +28,51 @@ function initMap() {
                     }
                 });
 
-                const locations = [
-                    { lat: 38.744401169766995, lng: -9.12210042750371, title: "Parque da Bela Vista", info: "teste" },
-                    { lat: 38.746791163972496, lng: -9.112037594600956, title: "Marvila", info: "teste" },
-                    { lat: 38.72120570174017, lng: -9.139257400380155, title: "Graça Calisthenics Park", info: "teste" },
-                    { lat: 38.73012518221117, lng: -9.158396082622005, title: "Parque Eduardo VII", info: "teste" },
-                    { lat: 38.73558194107584, lng: -9.160733114780443, title: "Parque do Corredor Verde", info: "teste" },
-                    { lat: 38.762767458976384, lng: -9.183379415464149, title: "Parque do Largo da Luz", info: "teste" },
-                ];
-
-                locations.forEach((location) => {
-                    const marker = new google.maps.Marker({
-                        position: location,
-                        map: map,
-                        title: location.title,
-                        icon: {
-                            url: "img/destination.png",
-                            scaledSize: new google.maps.Size(48, 48),
+                fetch('http://localhost:3000/api/locations')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
                         }
-                    });
+                        return response.json();
+                    })
+                    .then(locations => {
+                        locations.forEach((location) => {
+                            const { latitude, longitude } = location;
+                            console.log('Latitude:', latitude);
+                            console.log('Longitude:', longitude);
 
-                    const infowindow = new google.maps.InfoWindow({
-                        content: location.info,
-                    });
+                            if (isNaN(latitude) || isNaN(longitude)) {
+                                throw new Error('Latitude or longitude is not a valid number');
+                            }
 
-                    marker.addListener("click", function () {
-                        map.setZoom(17);
-                        map.setCenter(marker.getPosition());
-                        infowindow.open(map, marker);
+                            const marker = new google.maps.Marker({
+                                position: { lat: parseFloat(longitude), lng: parseFloat(latitude) },
+                                map: map,
+                                title: location.location_name,
+                                icon: {
+                                    url: "img/destination.png",
+                                    scaledSize: new google.maps.Size(48, 48),
+                                },
+                            });
 
-                        calculateAndDisplayRoute(userLocation, location);
+                            const infowindow = new google.maps.InfoWindow({
+                                content: location.info,
+                            });
+
+                            marker.addListener("click", function () {
+                                map.setZoom(17);
+                                map.setCenter(marker.getPosition());
+                                infowindow.open(map, marker);
+
+                                const origin = new google.maps.LatLng(userLocation.lat, userLocation.lng);
+                                const destination = new google.maps.LatLng(parseFloat(longitude), parseFloat(latitude));
+                                calculateAndDisplayRoute(origin, destination);
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.log('Error:', error);
                     });
-                });
 
                 const polygonCoordinates = [
                     { lat: 38.744401169766995, lng: -9.12210042750371 },
@@ -68,7 +81,7 @@ function initMap() {
                     { lat: 38.73012518221117, lng: -9.158396082622005 },
                     { lat: 38.73558194107584, lng: -9.160733114780443 },
                     { lat: 38.762767458976384, lng: -9.183379415464149 },
-                    { lat: 38.744401169766995, lng: -9.12210042750371 } 
+                    { lat: 38.744401169766995, lng: -9.12210042750371 }
                 ];
 
                 const polygon = new google.maps.Polygon({

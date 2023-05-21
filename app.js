@@ -55,6 +55,16 @@ app.get('/workout_spot', async (req, res) => {
   }
 });
 
+app.get('/api/locations', async (req, res) => {
+    try {
+      const result = await client.query('SELECT latitude, longitude, location_name, info FROM workout_spot');
+      res.json(result.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message }); // Send the actual error message
+      }
+  }); 
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
