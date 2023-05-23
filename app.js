@@ -6,6 +6,8 @@ const client = require('./database');
 const app = express();
 const PORT = 3000;
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -61,7 +63,7 @@ app.get('/api/locations', async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.message }); // Send the actual error message
+    res.status(500).json({ error: err.message }); 
   }
 });
 
@@ -71,7 +73,7 @@ app.get('/api/polygons', async (req, res) => {
     res.json(result.rows);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: err.message }); // Send the actual error message
+    res.status(500).json({ error: err.message }); 
   }
 });
 
