@@ -23,6 +23,7 @@ window.onload = function onLoad() {
       if (response.ok) {
         console.log('Login successful');
         window.location.href = "index.html"; // redirect user to dashboard
+        sessionStorage.setItem('loggedIn', 'true'); // Set logged-in status
       } else {
         alert('Invalid username or password');
       }
@@ -35,7 +36,7 @@ window.onload = function onLoad() {
   };
 
   // Check if the user is logged in
-  if (document.cookie.includes('session')) {
+  if (sessionStorage.getItem('loggedIn')) {
     // User is logged in
     var loginButton = document.getElementById("login-button");
     loginButton.innerHTML = '<i class="fas fa-user"></i>'; // Replace with person icon or appropriate HTML for the icon
