@@ -84,6 +84,16 @@ app.get('/api/polygons', async (req, res) => {
   }
 });
 
+app.get('/perfil', async (req, res) => {
+  try {
+    const userData = await client.query('SELECT username, gender, weight, height, age FROM users WHERE username = $1', [req.session.username]);
+    res.json(userData.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error fetching user data' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
