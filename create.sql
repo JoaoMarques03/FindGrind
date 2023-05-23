@@ -51,5 +51,12 @@ CREATE TABLE medals (
     captured BOOLEAN NOT NULL
 );
 
+CREATE TABLE workouts (
+  log_id SERIAL NOT NULL CONSTRAINT log_pkey PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(user_id),
+  exercise_name VARCHAR,
+  reps INTEGER,
+  log_date DATE DEFAULT CURRENT_DATE
+);
 -- melhorar ligação de tabelas
 -- medalhas na sua propria tabela (?) booleans (?)

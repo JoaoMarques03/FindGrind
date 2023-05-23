@@ -1,10 +1,8 @@
 window.onload = function onLoad() {
-
   var form = document.getElementById("form-login");
   console.log(form);
 
   form.onsubmit = async function(event) {
-
     event.preventDefault();
 
     const username = document.getElementById('username').value;
@@ -35,4 +33,11 @@ window.onload = function onLoad() {
 
     console.log('Request sent successfully');
   };
+
+  // Check if the user is logged in
+  if (document.cookie.includes('session')) {
+    // User is logged in
+    var loginButton = document.getElementById("login-button");
+    loginButton.innerHTML = '<i class="fas fa-user"></i>'; // Replace with person icon or appropriate HTML for the icon
+  }
 };

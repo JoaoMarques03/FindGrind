@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+const cookieSession = require('cookie-session');
 const cors = require('cors');
 const client = require('./database');
 const app = express();
+const path = require('path');
 const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -16,17 +17,23 @@ app.use(cors({
   origin: '*'
 }));
 
-app.use(session({
-  secret: 'mysecret',
-  resave: false,
-  saveUninitialized: true
+app.use(cookieSession({
+  name: 'session',
+  secret: process.env.COOKIE_SECRET,
+  maxAge: 6 * 60 * 60 * 1000, // 6 hours
 }));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
     const result = await client.query('SELECT * FROM users WHERE username=$1 AND password=$2', [username, password]);
     if (result.rows.length > 0) {
+      req.session.loggedIn = true;
+      req.session.username = username;
       res.status(200).send('ok');
     } else {
       res.status(401).send('Invalid username or password');

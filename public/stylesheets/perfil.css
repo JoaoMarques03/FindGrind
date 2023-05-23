@@ -1,10 +1,11 @@
 body {
-    background-color: whitesmoke;
-    padding: 0;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    color: #000;
+  background: white;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #000;
 }
+
 
 
 .student-profile .card {
@@ -48,13 +49,13 @@ body {
 
 
 
-#container {
+#containerperfil {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
-  #container p {
+  #containerperfil p {
     margin: 0;
   }
   
