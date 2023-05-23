@@ -1,143 +1,148 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Sumana:wght@700&display=swap");
-
-
-
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  max-width: 100%;
+}
 
+.center {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2%;
+  display: flex;
+  flex-wrap: nowrap;
+}
 
+header {
+  background-color: #FF751A;
+  padding: 10px 0;
+}
+
+.logotipo {
+  color: black;
+}
+
+.logotipo h1 {
+  height: 30px;
+  width: 300px;
+  color: white;
+  text-shadow: 0.1em 0.1em 0.05em #333;
+}
+
+.menu {
+  width: 80%;
+  text-align: right;
+}
+
+.menu a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: 0.4s;
+}
+
+.menu a:hover {
+  color: black;
+  ;
+}
+
+.menu .btn-menu {
+  background-color: #BABABA;
+  display: inline-block;
+  padding: 7px 14px;
+  color: black;
+  border-radius: 6px;
+}
+
+.menu .btn-menu:hover {
+  background-color: #74340a;
+  color: white;
+}
+
+/* media queries for responsive design */
+@media only screen and (max-width: 768px) {
   .center {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2%;
-    display: flex;
     flex-wrap: wrap;
-  }
-  
-  header {
-    background-color: #FF751A;
-    padding: 10px 0;
-  
-  }
-  
-  .logotipo {
-    color: black;
-  
-  }
-  
-  .logotipo h1 {
-    font-weight: 100px;
-    font-size: 30px;
-    margin-right: 23px;
-    color: white;
-  }
-  
-  .menu a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    margin-right: 20px;
-    transition: 0.4s;
-  }
-  
-  
-  .menu {
-    width: 80%;
-    text-align: right;
-  }
-  
-  
-  
-  .menu a:hover {
-    color: black;;
-  }
-  
-  .menu .btn-menu {
-    background-color: #BABABA;
-    display: inline-block;
-    padding: 7px 14px;
-    color: black;
-    border-radius: 6px;
-  
-  }
-  
-  .menu .btn-menu:hover {
-    background-color: #74340a;
-    color: white;
+    justify-content: space-between;
   }
 
+  .menu {
+    width: 100%;
+    text-align: center;
+    display: none;
+  }
+
+  .menu.show {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .menu a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .menu .btn-menu {
+    display: block;
+    margin: 10px auto;
+  }
+}
+
+
+/*---------navbar----------*/
 
 body {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background: #e1e1e1;
-    font-family: "Merriweather";
-  }
-  .person {
-    /* border: 1px solid; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 250px;
-  }
-  .container {
-    height: 312px;
-    width: 400px;
-    cursor: pointer;
-    transform: scale(0.48);
-    transition: transform 250ms 
-      cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .circle {
-    position: absolute;
-    background: var(--color);
-    height: 380px;
-    width: 380px;
-    top: 210px;
-    left: 10px;
-    border-radius: 50%;
-  }
-  .person img {
-    position: relative;
-    width: 340px;
-    top: 164px;
-    left: 22px;
-    transform: translateY(20px) scale(1.15);
-    transition: transform 250ms 
-      cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .conianer-inner {
-    position: relative;
-    clip-path: path("M 390,400 C 390,504.9341 304.9341,590 200,590 95.065898,590 10,504.9341 10,400 V 10 H 200 390 Z");
-    top: -200px;
-  }
-  .divider {
-    height: 3px;
-    width: 130px;
-    border-radius: 5px;
-    background: var(--color);
-  }
-  .person h1 {
-    color: #464646;
-    margin: 16px 0 0 0;
-  }
-  .person p {
-    font-family: arial;
-    color: #6e6e6e;
-    font-size: 14px;
-    margin-top: 5px;
-  }
-  /* hover */
-  .container:hover {
-    transform: scale(0.54);
-  } 
-  .container:hover img {
-    transform: translateY(0) scale(1.3);
-  }
+  background-image: url('../img/imagemdefundo2.jpg');
+}
+
+
+
+.metastitulo {
+  font-size: 45px;
+  color: white;
+  padding-top: 3%;
+  margin-left: 21%;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px black;
+
+}
+
+
+.containermetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-top: 6%;
+}
+
+.itemmetas {
+  flex-basis: calc(25% - 70px);
+  margin-bottom: 150px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.itemmetas:hover {
+  transform: scale(1.2);
+
+}
+
+
+.itemmetas img {
+  width: 40%;
+  height: auto;
+}
+
+
+.itemmetas .textmetas {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+  padding: 5px;
+  margin-left: 35%;
+  margin-right: 35%;
+}
