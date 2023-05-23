@@ -72,7 +72,7 @@ Parte do main
 */
 
 section.main {
-  background-image: url('img/ginasio_outdoor.jpg');
+  background-image: url('../img/ginasio_outdoor.jpg');
   padding-top: 400px;
   padding-bottom: 150px;
   background-position: center;
@@ -200,7 +200,7 @@ section.team {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('img/imagemdefundo2.jpg');
+  background-image: url('../img/imagemdefundo2.jpg');
   padding-bottom: 100px;
   background-position: center;
   background-size: cover;
@@ -276,7 +276,7 @@ section.team {
 
 
 section .tituloteam {
-  background-image: url('img/imagemdefundo2.jpg');
+  background-image: url('../img/imagemdefundo2.jpg');
   padding-top: 200px;
   padding-bottom: 0;
   background-position: center;
@@ -574,7 +574,7 @@ footer .bottom-details .bottom_text {
 
 
 section.maingrind {
-  background-image: url('img/imagemfundogrind.jpg');
+  background-image: url('../img/imagemfundogrind.jpg');
   padding-bottom: 150px;
   background-position: center;
   background-size: cover;
@@ -646,7 +646,7 @@ div.wrapper{
 
 
 section.mainmetas {
-  background-image: url('img/imagemfundogrind.jpg');
+  background-image: url('../img/imagemfundogrind.jpg');
   padding-bottom: 150px;
   background-position: center;
   background-size: cover;

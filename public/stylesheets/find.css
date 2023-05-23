@@ -95,7 +95,7 @@ header {
 
 
 section.mainfind {
-    background-image: url('img/imagemfundogrind.jpg');
+    background-image: url('../img/imagemfundogrind.jpg');
     padding-bottom: 150px;
     background-position: center;
     background-size: cover;
