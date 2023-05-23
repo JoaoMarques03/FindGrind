@@ -44,6 +44,11 @@ app.post('/login', async (req, res) => {
   }
 });
 
+app.post('/logout', (req, res) => {
+  req.session = null; 
+  res.status(200).send('Logout successful');
+});
+
 app.get('/users', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM users');
