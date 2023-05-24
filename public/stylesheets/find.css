@@ -1,8 +1,13 @@
-* {
+body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   max-width: 100%;
+}
+
+#map {
+  height: 70vh;
+  width: 100%;
 }
 
 .center {
@@ -88,13 +93,9 @@ header {
   }
 }
 
-
-
 /*------------------find------------------*/
 
-
-
-section.mainfind {
+ section.mainfind {
     background-image: url('../img/imagemfundogrind.jpg');
     padding-bottom: 150px;
     background-position: center;
@@ -103,7 +104,7 @@ section.mainfind {
     background-attachment: fixed;
     height: 900px;
   }
-  
+ 
   .titulofind h1{
     font-size: 65px;
     color: white;

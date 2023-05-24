@@ -6,15 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrT76RdNr5WWbquJS2Y_GUDeNxtH5bkPQ&callback=initMap" async defer></script>
     <title>Find</title>
     <link href="stylesheets/find.css" rel="stylesheet">
-    <style>
-        #map {
-            height: 70vh;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <header>
@@ -46,20 +39,12 @@
 
 </header>
 
-
-
-
-
-
 <body>
 
     <section class="mainfind">
         <div class="titulofind">
             <h1>Find</h1>
             <br>
-
-
-
         </div>
         <section class="fundoroll">
             <div class="wrapper">
@@ -74,28 +59,14 @@
 
 
             </div>
-
-
-
         </section>
 
         <section class="fundoroll1">
             <div id="map"></div>
-          </section>
-        </div>
-
-    
-
-
-
+        </section>
     </section>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrT76RdNr5WWbquJS2Y_GUDeNxtH5bkPQ&callback=initMap" async defer></script>
     <script src="javascript/find.js"></script>
-    <script>
-        window.onload = function () {
-            initMap();
-        };
-    </script>
 
 
 </body>
