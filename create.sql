@@ -52,11 +52,14 @@ CREATE TABLE medals (
 );
 
 CREATE TABLE workouts (
-  log_id SERIAL NOT NULL CONSTRAINT log_pkey PRIMARY KEY,
-  user_id INTEGER NOT NULL REFERENCES users(user_id),
+  log_id SERIAL PRIMARY KEY,
+  username VARCHAR NOT NULL,
+  submission_id SERIAL NOT NULL,
   exercise_name VARCHAR,
   reps INTEGER,
-  log_date DATE DEFAULT CURRENT_DATE
+  log_date DATE DEFAULT CURRENT_DATE,
+  log_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 -- melhorar ligação de tabelas
 -- medalhas na sua propria tabela (?) booleans (?)

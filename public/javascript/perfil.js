@@ -41,7 +41,6 @@ updateCounter();
 
 const logoutButton = document.getElementById('logoutBtn');
 
-console.log(logoutButton);
 logoutButton.addEventListener('click', function () {
   console.log('Logout button clicked');
   fetch('http://localhost:3000/logout', {
@@ -52,7 +51,7 @@ logoutButton.addEventListener('click', function () {
       if (response.ok) {
         console.log('Logout successful!');
         sessionStorage.clear();
-        window.location.href = 'index.html'; // Redirect to the index page after logout
+        window.location.href = 'index.html';
       } else {
         throw new Error('Logout failed');
       }
@@ -77,7 +76,6 @@ fetch('http://localhost:3000/perfil')
     return response.json();
   })
   .then(userData => {
-    // Update the table with the user data
     usernameElement.textContent = userData.username;
     genderElement.textContent = userData.gender;
     weightElement.textContent = userData.weight;
@@ -86,4 +84,38 @@ fetch('http://localhost:3000/perfil')
   })
   .catch(error => {
     console.log('Error:', error);
+  });
+
+const submitButton = document.getElementById('submitBtn');
+submitButton.addEventListener('click', function () {
+  const exercises = ['Shoulder Press', 'Leg Press', 'Sit-up Bench', 'Chest Press', 'Push-Up Bars', 'Free Runner', 'Horizontal Row', 'Cross Trainer'];
+  const workoutData = [];
+  for (let i = 0; i < counters.length; i++) {
+    const count = counters[i].getCount();
+    const exerciseName = exercises[i];
+
+    workoutData.push({ exercise_name: exerciseName, reps: count });
+  }
+
+  fetch('http://localhost:3000/workouts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ workouts: workoutData })
+  })
+    .then(response => {
+      if (response.status === 200) {
+        console.log('Workout submitted successfully!');
+        counters.forEach(counter => {
+          counter.decreaseCount();
+        });
+      } else {
+        throw new Error('Workout submission failed');
+      }
+    })
+    .catch(error => {
+      console.log('Error:', error);
+      alert('An error occurred during workout submission');
+    });
 });

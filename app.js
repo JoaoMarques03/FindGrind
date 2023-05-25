@@ -99,6 +99,52 @@ app.get('/perfil', async (req, res) => {
   }
 });
 
+app.post('/workouts', async (req, res) => {
+  try {
+    const { username } = req.session;
+    if (!username) {
+      return res.status(401).json({ error: 'User not authenticated' });
+    }
+    const { workouts } = req.body;
+    for (const workout of workouts) {
+      const { exercise_name, reps } = workout; 
+
+      const query = `
+        INSERT INTO workouts (username, exercise_name, reps, log_date, log_time)
+        VALUES ($1, $2, $3, CURRENT_DATE, CURRENT_TIMESTAMP)
+        RETURNING *;
+      `;
+      const result = await client.query(query, [username, exercise_name, reps]);
+    }
+    res.status(200).json({ message: 'Workout submission successful' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error inserting workout data' });
+  }
+});
+
+
+app.get('/workouts', async (req, res) => {
+  try {
+    const { user_id } = req.query;
+
+    let query = 'SELECT * FROM workouts';
+    const queryParams = [];
+
+    if (user_id) {
+      query += ' WHERE user_id = $1';
+      queryParams.push(user_id);
+    }
+
+    const result = await client.query(query, queryParams);
+
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error fetching workouts' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
