@@ -1,5 +1,5 @@
 body {
-  background: white;
+  background:white;
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -34,7 +34,9 @@ body {
     color: #000;
 }
 
-
+.student-profile .col-lg-4 {
+  margin-left: 76px; /* Ajusta a margem direita */
+}
 
 .student-profile .table th,
 .student-profile .table td {
