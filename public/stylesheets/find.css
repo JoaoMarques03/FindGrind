@@ -25,19 +25,21 @@ header {
 }
 
 .logotipo {
-  color: black;
+  display: flex;
+  align-items: center;
+  margin-right: auto;
 }
 
-.logotipo h1{
-  height: 0px;
+.logotipo h1 {
+  margin: 0;
   width: 300px;
   color: white;
   text-shadow: 0.1em 0.1em 0.05em #333;
 }
 
 .menu {
-  width: 80%;
-  text-align: right;
+  display: flex;
+  align-items: center;
 }
 
 .menu a {
@@ -94,8 +96,6 @@ header {
   }
 }
 
-/*------------------find------------------*/
-
  section.mainfind {
     background-image: url('../img/imagemfundogrind.jpg');
     padding-bottom: 150px;
@@ -106,15 +106,14 @@ header {
     height: 900px;
   }
  
-  .titulofind h1{
+  .titulofind h1 {
     font-size: 65px;
     color: white;
-
     position: absolute;
-    padding-top: 3%;
+    padding-top: 1%;
     margin-left: 18%;
     font-weight: 800;
-    text-shadow: 0.1em 0.1em 0.05em #333
+    text-shadow: 0.1em 0.1em 0.05em #000000;
   }
 
   section .fundoroll button{ 

@@ -73,33 +73,33 @@ Parte do main
 
 section.main {
   background-image: url('../img/ginasio_outdoor.jpg');
-  padding-top: 400px;
-  padding-bottom: 150px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 1000px;
-  
-  
+  height: 100vh;
 }
 
-.main_cta {
-  width: 100%;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 0px;
+section.main .center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
+section.main h2 {
+  color: white;
+  font-size: 100px;
+  font-weight: 900;
+}
 
-
-.main_cta p {
+section.main p {
   color: white;
   font-size: 30px;
-  margin: 15px 0;
 }
 
-.main_cta button {
+section.main button {
   background-color: #BABABA;
   color: black;
   display: inline-block;
@@ -110,104 +110,57 @@ section.main {
   cursor: pointer;
 }
 
-
-
-
-.main_cta button:hover {
+section.main button:hover {
   background-color: #919191;
 }
 
-/*texto animado titulo home page*/
-
-
-
-
-.animacao {
-  display: flex;
-}
-
-.animacao .static-txt {
-  color: white;
-  font-size: 60px;
-  font-weight: 400;
-}
-
-.animacao .dynamic-txts {
-  justify-content: center;
-  height: 90px;
-  line-height: 90px;
-
-}
-
-.dynamic-txts li {
-  list-style: none;
-  color: white;
-  font-size: 100px;
-  font-weight: 500;
-  text-align: center;
-  top: 0;
-  padding-left: 200px;
-}
-
-
-
-
-.dynamic-txts li span {
-  position: relative;
-  margin: 5px 0;
-  line-height: 90px;
-
-}
-
-.dynamic-txts li span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-
-  animation: typing 6s steps(10) infinite;
-}
-
-@keyframes typing {
-
-  40%,
-  60% {
-    left: calc(100% + 30px);
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-
-
-
-
-
-/*-------------team--------------*/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 section.team {
-  width: 100%;
-  height: 66vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url('../img/imagemdefundo2.jpg');
-  padding-bottom: 100px;
-  background-position: center;
+  height: 80vh;
+  width: 100%;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+}
 
+section.team::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajuste a opacidade conforme necessário */
+  z-index: -1; /* Coloque o pseudoelemento atrás do conteúdo do body */
+}
 
+.tituloteam {
+  margin-top: 0px;
+}
+
+.tituloteam h2 {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 800;
+  color: white;
+}
+
+.team-text {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 50px;
+}
+
+.profile-cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .profile-card {
@@ -218,7 +171,6 @@ section.team {
   padding: 30px;
   border-radius: 50%;
   transition: .3s;
-  margin: 0 25px;
 }
 
 .profile-card:hover {
@@ -272,62 +224,6 @@ section.team {
   color: black;
   margin: 2px 0 9px 0;
 }
-
-
-
-section .tituloteam {
-  background-image: url('../img/imagemdefundo2.jpg');
-  padding-top: 200px;
-  padding-bottom: 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-}
-
-
-
-.tituloteam h2 {
-  font-size: 40px;
-  text-align: center;
-  font-weight: 800;
-  color: white;
-}
-
-
-.tituloteam p {
-  font-size: 25px;
-  text-align: center;
-  font-weight: 300;
-  color: white;
-}
-
-
-/*-------------MOREINFO----------*/
-
-section .more_info {
-  background-color: #FF751A;
-  border-bottom: 1px solid black;
-  padding: 10px 0;
-}
-
-.moreinfoconteudo {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-
-
-
-
-
-/*------------footer-------------*/
-
-
 
 body {
   min-height: 100vh;
@@ -537,269 +433,4 @@ footer .bottom-details .bottom_text {
   footer .content .link-boxes .input-box {
     width: 100%;
   }
-}
-
-
-/*--------------------FIND---------------------------------------*/
-
-
-
-
-.mapa{
-  display: flex;
-  flex-direction: column;
-}
-
-
-.sitios_mapa {
-  background-color: #FF751A;
-  border: 1px solid black;
-  width: 300px;
-  height: 50px;
-}
-
-
-.sitios_mapa h3{
-  font-size: 20px;
-  color: black;
-
-}
-
-
-
-
-
-
-/*--------------------grind---------------------------------------*/
-
-
-section.maingrind {
-  background-image: url('../img/imagemfundogrind.jpg');
-  padding-bottom: 150px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 1500px;
-}
-
-
-.titulogrind h1{
-  font-size: 65px;
-  color: white;
-  padding-bottom: 0%;
-  position: relative;
-  padding-top: 3%;
-  padding-bottom: 2%;
-  margin-left: 18%;
-  font-weight: 800;
-  text-shadow: 0.1em 0.1em 0.05em #333
-}
-
-
-
-section details summary{ 
-  background-color: #FF751A;
-  padding: 2%;
-  border-bottom: 2px solid white;
-  font-weight: 550;
-  color: white;
-}
-
-section details p{
-  background-color: #AFAFB6;
-  color: white;
-  padding: 2%;
-}
-
-
-.img_roll {
-  max-width:400px;
-  max-height:150px;
-  margin: 1%;
-  display: flex;
-  justify-content: center;
-}
-
-
-div.wrapper{
-  position: relative;
-  width: 80%;
-  margin: auto;
-}
-
-
-.fundoroll {
-  height: 345px;
-  width: 45%;
-  float: left;
-  background-color:  #AFAFB6;
-  margin: 20px;
-  
-  
-}
-
-
-
-
-/*----------------------METAS--------------------------*/
-
-
-section.mainmetas {
-  background-image: url('../img/imagemfundogrind.jpg');
-  padding-bottom: 150px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 1000px;
-}
-
-section.bodymetas {
-  display: flex;
-  flex: wrap;
-  height: 100px;
-  font-family: "Merriweather";
-  padding-left: 23%;
-}
-
-section.bodymetas2 {
-  display: flex;
-  flex: wrap;
-  height: 100px;
-  font-family: "Merriweather";
-  padding-top: 10%;
-  padding-left: 23%;
-}
-
-
-section.bodymetas3 {
-  display: flex;
-  flex: wrap;
-  height: 100px;
-  font-family: "Merriweather";
-  padding-top: 15%;
-  padding-left: 23%;
-}
-
-.titulometas h1{
-  font-size: 65px;
-  color: white;
-  padding-bottom: 0%;
-  position: relative;
-  padding-top: 3%;
-  padding-bottom: 2%;
-  margin-left: 18%;
-  font-weight: 800;
-  text-shadow: 0.1em 0.1em 0.05em #333
-}
-
-.circle {
-  position: fixed;
-  background: var(--color);
-  height: 350px;
-  width: 350px;
-  top: 16px;
-  left: 25px;
-}
-
-
-
-
-
-.person {
-  /* border: 1px solid; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 250px;
-}
-
-.container {
-  height: 312px;
-  width: 400px;
-  transform: scale(0.48);
-  transition: transform 250ms 
-    cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-.person img {
-  position: relative;
-  width: 240px;
-  top: 264px;
-  left: 82px;
-  transform: translateY(20px) scale(1);
-  transition: transform 250ms 
-  cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-.conianer-inner {
-  position: relative;
-  top: -200px;
-}
-
-.conianer-inner-triangulo {
-  position: relative;
-  top: -150px;
-}
-
-
-.conianer-inner-retangulo {
-  position: relative;
-  top: -130px;
-}
-
-
-.divider {
-  height: 3px;
-  width: 130px;
-  border-radius: 5px;
-  background: var(--color);
-  padding-left: 3%;
-}
-
-
-.person h1 {
-  color: white;
-  margin: 16px 0 0 0;
-}
-
-.person h2 {
-  color: white;
-  margin: 50px 0 0 0;
-  font-size: 17px;
-  font-weight: 620;
-}
-
-
-.person h3 {
-  color: white;
-  margin: 100px 0 0 0;
-  font-size: 20px;
-  font-weight: 620;
-}
-
-
-.person h4 {
-  color: white;
-  margin: 9px 0 0 0;
-  font-size: 20px;
-  font-weight: 620;
-}
-
-
-.person p {
-  font-family: arial;
-  color: white;
-  font-size: 14px;
-  margin-top: 5px;
-}
-/* hover */
-.container:hover {
-  transform: scale(0.54);
-} 
-.container:hover img {
-  transform: translateY(0) scale(1.2);
 }
