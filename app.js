@@ -145,6 +145,25 @@ app.get('/workouts', async (req, res) => {
   }
 });
 
+app.get('/workouts/reps', async (req, res) => {
+  try {
+    const { exercise_name } = req.query;
+    const loggedInUser = req.session.username; 
+    let query = 'SELECT exercise_name, SUM(reps) AS total_reps FROM workouts WHERE username = $1';
+    const queryParams = [loggedInUser];
+    if (exercise_name) {
+      query += ' AND exercise_name = $2';
+      queryParams.push(exercise_name);
+    }
+    query += ' GROUP BY exercise_name';
+    const result = await client.query(query, queryParams);
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error fetching total reps' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

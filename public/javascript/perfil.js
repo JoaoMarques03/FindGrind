@@ -67,6 +67,7 @@ const genderElement = document.getElementById('gender');
 const weightElement = document.getElementById('weight');
 const heightElement = document.getElementById('height');
 const ageElement = document.getElementById('age');
+const userFullNameElement = document.getElementById('userFullName');
 
 fetch('http://localhost:3000/perfil')
   .then(response => {
@@ -76,6 +77,7 @@ fetch('http://localhost:3000/perfil')
     return response.json();
   })
   .then(userData => {
+    userFullNameElement.textContent = userData.username;
     usernameElement.textContent = userData.username;
     genderElement.textContent = userData.gender;
     weightElement.textContent = userData.weight;
@@ -119,3 +121,26 @@ submitButton.addEventListener('click', function () {
       alert('An error occurred during workout submission');
     });
 });
+
+fetch('http://localhost:3000/workouts/reps')
+  .then(response => response.json())
+  .then(data => {
+    const totalRepsTable = document.querySelector('.small-table');
+    const rows = totalRepsTable.getElementsByTagName('tr');
+
+    data.forEach(item => {
+      const { exercise_name, total_reps } = item;
+
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        if (cells[0].textContent === exercise_name) {
+          cells[1].textContent = total_reps;
+          break;
+        }
+      }
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching total reps:', error);
+  });
+
