@@ -19,8 +19,6 @@ CREATE TABLE workout_spot (
     location_name VARCHAR NOT NULL,
     longitude DECIMAL NOT NULL,
     latitude DECIMAL NOT NULL,
-    first_time BOOLEAN,
-    workout_spot_powerstation_id VARCHAR,
     info TEXT
 );
 
