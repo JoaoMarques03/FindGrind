@@ -54,7 +54,6 @@ CREATE TABLE medals (
 CREATE TABLE workouts (
   log_id SERIAL PRIMARY KEY,
   username VARCHAR NOT NULL,
-  submission_id SERIAL NOT NULL,
   exercise_name VARCHAR,
   reps INTEGER,
   log_date DATE DEFAULT CURRENT_DATE,
